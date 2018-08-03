@@ -1,6 +1,6 @@
 Primera tarea programada.
 
-Una aplicación de escritorio que le permite a un usuario encriptar mensajes y
+Una aplicación de consola que le permite a un usuario encriptar mensajes y
 enviar versiones encriptadas en cierto código a sus correos con una etiqueta al
 final que le sirve al programa para saber en qué cifrado está. 
 Poco práctico tener el mensaje nada más en el correo, pienso yo.
