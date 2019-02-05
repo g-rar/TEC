@@ -1,0 +1,35 @@
+<resources>
+    <string-array name="filter_names_array">
+        <item>Choose a filter</item>
+        <item>Black/White</item>
+        <item>Gaussian Burl</item>
+        <item>FaGer Effect</item>
+        <item>UnSharpened</item>
+    </string-array>
+    <string name="app_name">Picz</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="main_menu_stories">Stories</string>
+    <string name="main_menu_addStory">Add Story</string>
+    <string name="addStory_menu_takePicture">Take picture</string>
+    <string name="addStory_menu_pickFromGallery">Choose from galery</string>
+    <string name="main_menu_exit">Exit</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_test_nav">TestNavActivity</string>
+    <string name="title_activity_stories">StoriesActivity</string>
+    <string name="edit_story_title">Edit Story</string>
+    <string name="add_story_text">Write your story</string>
+    <string name="add_image_filter">Apply filter</string>
+    <string name="create_text">Create Story</string>
+    <string name="remove_image_filters">Remove filters</string>
+    <string name="edit_story_imagePreview_contentDescription">Preview for choosen image</string>
+    <string name="image_filters_removed">Image filters removed</string>
+    <string name="no_filter_selected">No filter selected</string>
+    <string name="filter_applied">Filter applied</string>
+    <string name="create_story_error">An error has ocurred while creating story</string>
+    <string name="no_stories_found">No stories have been found</string>
+    <string name="stories_found">These are the stories that have been found</string>
+</resources>
