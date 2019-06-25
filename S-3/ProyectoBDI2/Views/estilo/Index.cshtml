@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.ESTILO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Estilos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CODESTILO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COLOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Label(item.CODESTILO.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COLOR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CODESTILO }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CODESTILO }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CODESTILO })
+        </td>
+    </tr>
+}
+
+</table>

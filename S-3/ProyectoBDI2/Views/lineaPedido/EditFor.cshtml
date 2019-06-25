@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.LINEAPEDIDO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar lineas de pedido</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PEDIDO.CODPEDIDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRENDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDENPRODUCCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Label(item.CANTIDAD.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECIO)
+        </td>
+        <td>
+            @Html.Label(item.CODPEDIDO.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRENDA.INFOPRENDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CODORDENPRODUCCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { codPedido = item.PEDIDO.CODPEDIDO, codPrenda = item.PRENDA.CODPRENDA, vP = true }) |
+            @Html.ActionLink("Delete", "Delete", new { codPedido = item.PEDIDO.CODPEDIDO, codPrenda = item.PRENDA.CODPRENDA, vP = true })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Añadir productos", "Create", new { codPedido = ViewBag.codPedido}, htmlAttributes: new { @class = "btn btn-primary"}) | 
+    @Html.ActionLink("Volver al pedido", "Details", "Pedido", new { id = ViewBag.codPedido}, htmlAttributes : new { @class = "btn btn-default"})
+</p>

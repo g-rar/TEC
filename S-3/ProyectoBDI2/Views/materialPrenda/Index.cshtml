@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.MATERIALPRENDA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes : new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PRENDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDADREQUERIDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRENDA.TALLA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRENDA.INFOPRENDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATERIAPRIMA.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CANTIDADREQUERIDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UNIDADMEDIDA1.NBRMEDIDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRENDA.TALLA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATERIAPRIMA.DESCRIPCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { codPrenda = item.CODPRENDA, codMateriaPrima = item.CODMATERIAL }) |
+            @Html.ActionLink("Details", "Details", new { codPrenda = item.CODPRENDA, codMateriaPrima = item.CODMATERIAL  }) |
+            @Html.ActionLink("Delete", "Delete", new { codPrenda = item.CODPRENDA, codMateriaPrima = item.CODMATERIAL  })
+        </td>
+    </tr>
+}
+
+</table>

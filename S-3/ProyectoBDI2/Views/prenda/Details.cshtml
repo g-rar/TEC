@@ -1,0 +1,51 @@
+﻿@model ProyectoBDI2.Models.PRENDA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PRENDA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXISTENCIAACTUAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXISTENCIAACTUAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TALLA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TALLA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTILO.COLOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTILO.COLOR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CODPRENDA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

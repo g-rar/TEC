@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0fbcf12807b44f848d78b124ba1ed9bd" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="nsProyectoBDIModel.CLIENTE" Width="1.5" PointX="3.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.CONJUNTO" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.CONVERSIONUNIDADMEDIDA" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.EMPLEADO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.ESTILO" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.LINEAORDENCOMPRA" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.LINEAPEDIDO" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.MATERIALPRENDA" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.MATERIAPRIMA" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.MATERIAPROVEEDOR" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.ORDENCOMPRA" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.ORDENESPERA" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.ORDENPRODUCCION" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.PEDIDO" Width="1.5" PointX="6" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.PRENDA" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.PROVEEDOR" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.PROVEEDOREXTRANGERO" Width="1.5" PointX="3" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.PROVEEDORNACIONAL" Width="1.5" PointX="3" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nsProyectoBDIModel.UNIDADMEDIDA" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="nsProyectoBDIModel.PEDIDO_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.FK_CONJUNTO_PRENDA" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.FK_CONJUNTO_PRENDA1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.CONVERSIONUNIDADMEDIDA_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.CONVERSIONUNIDADMEDIDA_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.PRENDA_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.LINEAORDENCOMPRA_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.LINEAORDENCOMPRA_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.LINEAORDENCOMPRA_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.LINEAPEDIDO_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.LINEAPEDIDO_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.LINEAPEDIDO_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.MATERIALPRENDA_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.MATERIALPRENDA_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.MATERIALPRENDA_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.MATERIAPRIMA_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.MATERIAPROVEEDOR_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.ORDENESPERA_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.MATERIAPROVEEDOR_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.ORDENCOMPRA_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.ORDENESPERA_ORDENCOMPRA_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.ORDENESPERA_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.ORDENESPERA_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.ORDENPRODUCCION_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.PROVEEDOREXTRANGERO_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="nsProyectoBDIModel.PROVEEDORNACIONAL_FK1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

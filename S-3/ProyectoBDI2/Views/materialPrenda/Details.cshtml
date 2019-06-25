@@ -1,0 +1,51 @@
+﻿@model ProyectoBDI2.Models.MATERIALPRENDA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MATERIALPRENDA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDADREQUERIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDADREQUERIDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENDA.TALLA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENDA.TALLA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

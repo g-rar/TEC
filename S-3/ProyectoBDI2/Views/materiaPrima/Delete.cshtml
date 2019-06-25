@@ -1,0 +1,73 @@
+﻿@model ProyectoBDI2.Models.MATERIAPRIMA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MATERIAPRIMA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDADMINIMA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDADMINIMA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COSTOUNITARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COSTOUNITARIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXISTENCIAACTUAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXISTENCIAACTUAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        @if (ViewBag.canDelete)
+        {
+            <input type="submit" value="Delete" class="btn btn-default" />
+        }
+        else
+        {
+            <label class="label-danger">No se puede borrar el material</label>
+            <input type="submit" value="Delete" class="btn btn-default" disabled />
+        }
+            | @Html.ActionLink("Back to List", "Index")
+     </div>
+    }
+</div>

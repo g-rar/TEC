@@ -1,0 +1,64 @@
+﻿@model ProyectoBDI2.Models.MATERIALPRENDA
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>MATERIALPRENDA</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CODPRENDA)
+
+        @Html.HiddenFor(model => model.CODMATERIAL)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UNIDADMEDIDA, "UNIDADMEDIDA", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UNIDADMEDIDA", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UNIDADMEDIDA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CANTIDADREQUERIDA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CANTIDADREQUERIDA, new { htmlAttributes = new { @class = "form-control", @step = "0,01", @value = "1"  } })
+                @Html.ValidationMessageFor(model => model.CANTIDADREQUERIDA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="~/Scripts/globalize.js"></script>
+    <script type="text/javascript" src="~/Scripts/globalize.culture.neutral.js"></script>
+    <script type="text/javascript">
+        $.validator.methods.number = function (value, element) {
+   return this.optional(element) || !isNaN(Globalize.parseFloat(value));
+        }
+
+        $(function () {
+            Globalize.culture('%%culture%%');
+        });
+    </script>
+}

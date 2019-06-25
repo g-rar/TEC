@@ -1,0 +1,65 @@
+﻿@model ProyectoBDI2.Models.LINEAPEDIDO
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LINEAPEDIDO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PEDIDO.CODPEDIDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PEDIDO.CODPEDIDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENDA.TALLA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENDA.TALLA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDENPRODUCCION.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDENPRODUCCION.ESTADO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la lista", "Index")
+        </div>
+    }
+</div>

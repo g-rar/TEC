@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.LINEAORDENCOMPRA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lineas de orden de compra</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDENCOMPRA.CODORDENCOMPRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CANTIDAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDENCOMPRA.CODORDENCOMPRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATERIAPRIMA.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UNIDADMEDIDA1.NBRMEDIDA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { codOrdenCompra = item.CODORDENCOMPRA, codMaterial = item.CODMATERIAL }) |
+            @Html.ActionLink("Details", "Details", new { codOrdenCompra = item.CODORDENCOMPRA, codMaterial = item.CODMATERIAL }) |
+            @Html.ActionLink("Delete", "Delete", new { codOrdenCompra = item.CODORDENCOMPRA, codMaterial = item.CODMATERIAL })
+        </td>
+    </tr>
+}
+
+</table>

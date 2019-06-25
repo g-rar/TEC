@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lineas de pedido para la orden de producción @ViewBag.OP</h2>
+<p>Lineas de pedido incluidas en una orden de produccion</p>
+
+<table class="table">
+    <tr>
+        <th>Cod Pedido</th>
+        <th>ID Prenda</th>
+        <th>Talla</th>
+        <th>Estilo</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+    </tr>
+
+    @foreach (ProyectoBDI2.Models.LINEAPEDIDO item in ViewBag.resultadoConsulta)
+    {
+    <tr>
+        <td>
+            @Html.Label(item.PEDIDO.CODPEDIDO.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.Label(item.CODPRENDA.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.Label(item.PRENDA.TALLA, htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.Label(item.PRENDA.CODESTILO.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.Label(item.CANTIDAD.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.Label(item.PRENDA.PRECIO.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+    </tr>
+    }
+
+</table>
+

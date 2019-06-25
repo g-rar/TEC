@@ -1,0 +1,35 @@
+﻿@model ProyectoBDI2.Models.UNIDADMEDIDA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UNIDADMEDIDA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NBRMEDIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NBRMEDIDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CODUNIDADMEDIDA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.PEDIDO>
+
+@{
+    ViewBag.Title = "Consulta 3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pedidos</h2>
+
+<p>Ordenes de produccion relacionadas con un pedido</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CODPEDIDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHAPEDIDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHAENTREGA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENTE)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CODPEDIDO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHAPEDIDO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHAENTREGA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CLIENTE.INFOCLIENTE)
+            </td>
+            <td>
+                | @Html.ActionLink("Hacer Consulta", "Consulta3Result", new { codPedido = item.CODPEDIDO }) |
+            </td>
+        </tr>
+    }
+
+</table>
+

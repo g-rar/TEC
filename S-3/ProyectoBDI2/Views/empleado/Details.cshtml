@@ -1,0 +1,51 @@
+﻿@model ProyectoBDI2.Models.EMPLEADO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EMPLEADO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PUESTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUESTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SALARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SALARIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECCION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CODEMPLEADO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

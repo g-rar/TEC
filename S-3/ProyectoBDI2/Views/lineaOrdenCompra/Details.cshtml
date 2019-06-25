@@ -1,0 +1,51 @@
+﻿@model ProyectoBDI2.Models.LINEAORDENCOMPRA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LINEAORDENCOMPRA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDENCOMPRA.CODORDENCOMPRA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDENCOMPRA.CODORDENCOMPRA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

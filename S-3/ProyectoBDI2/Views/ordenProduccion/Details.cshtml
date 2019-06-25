@@ -1,0 +1,51 @@
+﻿@model ProyectoBDI2.Models.ORDENPRODUCCION
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ORDENPRODUCCION</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHAPROGRAMADA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHAPROGRAMADA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENDA.TALLA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENDA.TALLA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CODORDENPRODUCCION }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

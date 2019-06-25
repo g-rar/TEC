@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.PEDIDO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pedidos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CODPEDIDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHAPEDIDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHAENTREGA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENTE)
+        </th>
+        <th></th>
+    </tr>
+    @{ int i = 0;}
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CODPEDIDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHAPEDIDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHAENTREGA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLIENTE.INFOCLIENTE)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "DetailsByIndex", new { index = i}) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CODPEDIDO })
+        </td>
+    </tr>
+        i++;
+    }
+
+</table>

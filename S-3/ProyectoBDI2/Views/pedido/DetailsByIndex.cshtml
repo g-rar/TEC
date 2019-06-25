@@ -1,0 +1,95 @@
+﻿@model ProyectoBDI2.Models.PEDIDO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PEDIDO</h4>
+    @if (ViewBag.actualIndex == 0)
+    {
+        <a class="btn btn-default" disabled><<</a>
+        <a class="btn btn-default" disabled><</a>
+    }
+    else
+    {
+        @Html.ActionLink("<<", "DetailsByIndex", new { index = 0 }, htmlAttributes: new { @class = "btn btn-default" })
+        @Html.ActionLink("<", "DetailsByIndex", new { index = ViewBag.actualIndex - 1 }, htmlAttributes: new { @class = "btn btn-default" })
+    }
+    @if (ViewBag.actualIndex == ViewBag.lastIndex)
+    {
+
+        <a class="btn btn-default" disabled>></a>
+        <a class="btn btn-default" disabled>>></a>
+    }
+    else
+    {
+        @Html.ActionLink(">", "DetailsByIndex", new { index = ViewBag.actualIndex + 1 }, htmlAttributes: new { @class = "btn btn-default" })
+        @Html.ActionLink(">>", "DetailsByIndex", new { index = ViewBag.lastIndex }, htmlAttributes: new { @class = "btn btn-default" })
+    }
+
+
+    <center><h2>Info general</h2></center>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CODPEDIDO)          </th>
+                <th>@Html.DisplayNameFor(model => model.FECHAPEDIDO)        </th>
+                <th>@Html.DisplayNameFor(model => model.FECHAENTREGA)       </th>
+                <th>@Html.DisplayNameFor(model => model.CLIENTE)   </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>@Html.DisplayFor(model => model.CODPEDIDO)            </th>
+                <th>@Html.DisplayFor(model => model.FECHAPEDIDO)            </th>
+                <th>@Html.DisplayFor(model => model.FECHAENTREGA)           </th>
+                <th>@Html.DisplayFor(model => model.CLIENTE.INFOCLIENTE)       </th>
+            </tr>
+        </tbody>
+    </table>
+    @Html.ActionLink("Editar pedido", "Edit", new { id = Model.CODPEDIDO }, htmlAttributes: new { @class = "btn btn-primary" })
+    <hr />
+    <center><h2>Productos del pedido</h2></center>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cod Pedido</th>
+                <th>Cod Prenda</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Cod Orden Produccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ProyectoBDI2.Models.LINEAPEDIDO lINEAPEDIDO in ViewBag.LINEASPEDIDO)
+            {
+                <tr>
+                    <td>
+                        @Html.Label(lINEAPEDIDO.CODPEDIDO.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                    </td>
+                    <td>
+                        @Html.Label(lINEAPEDIDO.CODPRENDA.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                    </td>
+                    <td>
+                        @Html.Label(lINEAPEDIDO.CANTIDAD.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                    </td>
+                    <td>
+                        @Html.Label(lINEAPEDIDO.PRECIO.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                    </td>
+                    <td>
+                        @Html.Label(lINEAPEDIDO.CODORDENPRODUCCION.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar productos", "editfor", "lineapedido", new { codPedido = Model.CODPEDIDO}, htmlAttributes : new { @class = "btn btn-default"}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

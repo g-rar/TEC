@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProyectoBDITestModelStoreContainer" CdmEntityContainer="bdProyectoBDIEntities">
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="CEDCLIENTE" ColumnName="CEDCLIENTE" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="DIRCOBRO" ColumnName="DIRCOBRO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONJUNTO">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.CONJUNTO">
+        <MappingFragment StoreEntitySet="CONJUNTO">
+          <ScalarProperty Name="CODCONJUNTO" ColumnName="CODCONJUNTO" />
+          <ScalarProperty Name="CODPRENDA" ColumnName="CODPRENDA" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONVERSIONUNIDADMEDIDA">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.CONVERSIONUNIDADMEDIDA">
+        <MappingFragment StoreEntitySet="CONVERSIONUNIDADMEDIDA">
+          <ScalarProperty Name="UNIDADORIGEN" ColumnName="UNIDADORIGEN" />
+          <ScalarProperty Name="UNIDADOBJETIVO" ColumnName="UNIDADOBJETIVO" />
+          <ScalarProperty Name="EQUIVALENCIA" ColumnName="EQUIVALENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADO">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.EMPLEADO">
+        <MappingFragment StoreEntitySet="EMPLEADO">
+          <ScalarProperty Name="CODEMPLEADO" ColumnName="CODEMPLEADO" />
+          <ScalarProperty Name="PUESTO" ColumnName="PUESTO" />
+          <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTILO">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.ESTILO">
+        <MappingFragment StoreEntitySet="ESTILO">
+          <ScalarProperty Name="CODESTILO" ColumnName="CODESTILO" />
+          <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LINEAORDENCOMPRA">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.LINEAORDENCOMPRA">
+        <MappingFragment StoreEntitySet="LINEAORDENCOMPRA">
+          <ScalarProperty Name="CODORDENCOMPRA" ColumnName="CODORDENCOMPRA" />
+          <ScalarProperty Name="CODMATERIAL" ColumnName="CODMATERIAL" />
+          <ScalarProperty Name="UNIDADMEDIDA" ColumnName="UNIDADMEDIDA" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LINEAPEDIDO">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.LINEAPEDIDO">
+        <MappingFragment StoreEntitySet="LINEAPEDIDO">
+          <ScalarProperty Name="CODPEDIDO" ColumnName="CODPEDIDO" />
+          <ScalarProperty Name="CODPRENDA" ColumnName="CODPRENDA" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="CODORDENPRODUCCION" ColumnName="CODORDENPRODUCCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MATERIALPRENDA">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.MATERIALPRENDA">
+        <MappingFragment StoreEntitySet="MATERIALPRENDA">
+          <ScalarProperty Name="CODPRENDA" ColumnName="CODPRENDA" />
+          <ScalarProperty Name="CODMATERIAL" ColumnName="CODMATERIAL" />
+          <ScalarProperty Name="UNIDADMEDIDA" ColumnName="UNIDADMEDIDA" />
+          <ScalarProperty Name="CANTIDADREQUERIDA" ColumnName="CANTIDADREQUERIDA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MATERIAPRIMA">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.MATERIAPRIMA">
+        <MappingFragment StoreEntitySet="MATERIAPRIMA">
+          <ScalarProperty Name="CODMATERIAL" ColumnName="CODMATERIAL" />
+          <ScalarProperty Name="UNIDADMEDIDA" ColumnName="UNIDADMEDIDA" />
+          <ScalarProperty Name="CANTIDADMINIMA" ColumnName="CANTIDADMINIMA" />
+          <ScalarProperty Name="COSTOUNITARIO" ColumnName="COSTOUNITARIO" />
+          <ScalarProperty Name="EXISTENCIAACTUAL" ColumnName="EXISTENCIAACTUAL" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MATERIAPROVEEDOR">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.MATERIAPROVEEDOR">
+        <MappingFragment StoreEntitySet="MATERIAPROVEEDOR">
+          <ScalarProperty Name="CODMATERIAL" ColumnName="CODMATERIAL" />
+          <ScalarProperty Name="CODPROVEEDOR" ColumnName="CODPROVEEDOR" />
+          <ScalarProperty Name="COSTOUNIDAD" ColumnName="COSTOUNIDAD" />
+          <ScalarProperty Name="CANTIDADMINIMA" ColumnName="CANTIDADMINIMA" />
+          <ScalarProperty Name="DIASENTREGA" ColumnName="DIASENTREGA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDENCOMPRA">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.ORDENCOMPRA">
+        <MappingFragment StoreEntitySet="ORDENCOMPRA">
+          <ScalarProperty Name="CODORDENCOMPRA" ColumnName="CODORDENCOMPRA" />
+          <ScalarProperty Name="CODPROVEEDOR" ColumnName="CODPROVEEDOR" />
+          <ScalarProperty Name="FECHAENTREGA" ColumnName="FECHAENTREGA" />
+          <ScalarProperty Name="FECHAEMISION" ColumnName="FECHAEMISION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDENESPERA">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.ORDENESPERA">
+        <MappingFragment StoreEntitySet="ORDENESPERA">
+          <ScalarProperty Name="CODORDENPRODUCCION" ColumnName="CODORDENPRODUCCION" />
+          <ScalarProperty Name="CODMATERIALFALTANTE" ColumnName="CODMATERIALFALTANTE" />
+          <ScalarProperty Name="UNIDADMEDIDA" ColumnName="UNIDADMEDIDA" />
+          <ScalarProperty Name="CODORDENCOMPRA" ColumnName="CODORDENCOMPRA" />
+          <ScalarProperty Name="CANTIDADFALTANTE" ColumnName="CANTIDADFALTANTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDENPRODUCCION">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.ORDENPRODUCCION">
+        <MappingFragment StoreEntitySet="ORDENPRODUCCION">
+          <ScalarProperty Name="CODORDENPRODUCCION" ColumnName="CODORDENPRODUCCION" />
+          <ScalarProperty Name="CODPRENDA" ColumnName="CODPRENDA" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="FECHAPROGRAMADA" ColumnName="FECHAPROGRAMADA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDO">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.PEDIDO">
+        <MappingFragment StoreEntitySet="PEDIDO">
+          <ScalarProperty Name="CODPEDIDO" ColumnName="CODPEDIDO" />
+          <ScalarProperty Name="CEDCLIENTE" ColumnName="CEDCLIENTE" />
+          <ScalarProperty Name="FECHAPEDIDO" ColumnName="FECHAPEDIDO" />
+          <ScalarProperty Name="FECHAENTREGA" ColumnName="FECHAENTREGA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRENDA">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.PRENDA">
+        <MappingFragment StoreEntitySet="PRENDA">
+          <ScalarProperty Name="CODPRENDA" ColumnName="CODPRENDA" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="EXISTENCIAACTUAL" ColumnName="EXISTENCIAACTUAL" />
+          <ScalarProperty Name="CODESTILO" ColumnName="CODESTILO" />
+          <ScalarProperty Name="TALLA" ColumnName="TALLA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDOR">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.PROVEEDOR">
+        <MappingFragment StoreEntitySet="PROVEEDOR">
+          <ScalarProperty Name="CODPROVEEDOR" ColumnName="CODPROVEEDOR" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="NBRCONTACTO" ColumnName="NBRCONTACTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDOREXTRANGERO">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.PROVEEDOREXTRANGERO">
+        <MappingFragment StoreEntitySet="PROVEEDOREXTRANGERO">
+          <ScalarProperty Name="CODPROVEEDOR" ColumnName="CODPROVEEDOR" />
+          <ScalarProperty Name="NBRBANCO" ColumnName="NBRBANCO" />
+          <ScalarProperty Name="CUENTABANCO" ColumnName="CUENTABANCO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDORNACIONAL">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.PROVEEDORNACIONAL">
+        <MappingFragment StoreEntitySet="PROVEEDORNACIONAL">
+          <ScalarProperty Name="CODPROVEEDOR" ColumnName="CODPROVEEDOR" />
+          <ScalarProperty Name="CEDJURIDICA" ColumnName="CEDJURIDICA" />
+          <ScalarProperty Name="DIASCREDITO" ColumnName="DIASCREDITO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNIDADMEDIDA">
+      <EntityTypeMapping TypeName="nsProyectoBDIModel.UNIDADMEDIDA">
+        <MappingFragment StoreEntitySet="UNIDADMEDIDA">
+          <ScalarProperty Name="CODUNIDADMEDIDA" ColumnName="CODUNIDADMEDIDA" />
+          <ScalarProperty Name="NBRMEDIDA" ColumnName="NBRMEDIDA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="cleanDatabase" FunctionName="ProyectoBDITestModel.Store.cleanDatabase" />
+    <FunctionImportMapping FunctionImportName="realizarRespaldoLog" FunctionName="ProyectoBDITestModel.Store.realizarRespaldoLog" />
+    <FunctionImportMapping FunctionImportName="realizarRespaldoT" FunctionName="ProyectoBDITestModel.Store.realizarRespaldoT" />
+    <FunctionImportMapping FunctionImportName="registrarFaltantes" FunctionName="ProyectoBDITestModel.Store.registrarFaltantes" />
+    <FunctionImportMapping FunctionImportName="registrarFaltantesPorOP" FunctionName="ProyectoBDITestModel.Store.registrarFaltantesPorOP" />
+    <FunctionImportMapping FunctionImportName="registrarMaterialFaltante" FunctionName="ProyectoBDITestModel.Store.registrarMaterialFaltante" />
+    <FunctionImportMapping FunctionImportName="rellenarBD" FunctionName="ProyectoBDITestModel.Store.rellenarBD" />
+  </EntityContainerMapping>
+</Mapping>

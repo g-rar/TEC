@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.ORDENPRODUCCION>
+
+@{
+    ViewBag.Title = "Consulta 1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ordenes de produccion</h2>
+<p>Lineas de pedido incluidas en una orden de produccion</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CODORDENPRODUCCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHAPROGRAMADA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRENDA.INFOPRENDA)
+        </th>
+        <th></th>
+    </tr>
+    @{ int i = 0;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Label(item.CODORDENPRODUCCION.ToString(),  htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+            </td>
+            <td>
+                @Html.Label(item.CANTIDAD.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESTADO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHAPROGRAMADA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRENDA.INFOPRENDA)
+            </td>
+            <td>
+                | @Html.ActionLink("Realizar consulta", "Consulta1Result", new { id = item.CODORDENPRODUCCION }) |
+            </td>
+        </tr>
+        i++;
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

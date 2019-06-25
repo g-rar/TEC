@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.CONVERSIONUNIDADMEDIDA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Conversiones de UM</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes : new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA.NBRMEDIDA)
+        </th>
+        <th>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EQUIVALENCIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>Un</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UNIDADMEDIDA.NBRMEDIDA)
+        </td>
+        <td>son</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EQUIVALENCIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UNIDADMEDIDA1.NBRMEDIDA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

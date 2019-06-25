@@ -1,0 +1,60 @@
+﻿@model ProyectoBDI2.Models.ORDENESPERA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ORDENESPERA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDADFALTANTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDADFALTANTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDENCOMPRA.CODORDENCOMPRA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDENCOMPRA.CODORDENCOMPRA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDENPRODUCCION.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDENPRODUCCION.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { codOrdenProduccion = Model.CODORDENPRODUCCION, codMaterial = Model.CODMATERIALFALTANTE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+ 

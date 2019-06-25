@@ -1,0 +1,59 @@
+﻿@model ProyectoBDI2.Models.LINEAPEDIDO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LINEAPEDIDO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PEDIDO.CODPEDIDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PEDIDO.CODPEDIDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENDA.INFOPRENDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDENPRODUCCION.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDENPRODUCCION.ESTADO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { codPedido = Model.PEDIDO.CODPEDIDO, codPrenda = Model.PRENDA.CODPRENDA, vP = false}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

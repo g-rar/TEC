@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.UNIDADMEDIDA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Unidades de medida</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes : new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CODUNIDADMEDIDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NBRMEDIDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CODUNIDADMEDIDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NBRMEDIDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CODUNIDADMEDIDA }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CODUNIDADMEDIDA }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CODUNIDADMEDIDA })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model ProyectoBDI2.Models.MATERIALPRENDA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MATERIALPRENDA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CANTIDADREQUERIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANTIDADREQUERIDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENDA.TALLA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENDA.TALLA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

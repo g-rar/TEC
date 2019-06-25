@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="neSolicitudDM" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="CEDCLIENTE" />
+    </Key>
+    <Property Name="CEDCLIENTE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TELEFONO" Type="Decimal" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="DIRCOBRO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APELLIDOS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PEDIDO" Relationship="Self.FK_PEDIDO_CLIENTE" FromRole="CLIENTE" ToRole="PEDIDO" />
+  </EntityType>
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="CODPEDIDO" />
+    </Key>
+    <Property Name="CODPEDIDO" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CEDCLIENTE" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FECHAPEDIDO" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FECHAENTREGA" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK_PEDIDO_CLIENTE" FromRole="PEDIDO" ToRole="CLIENTE" />
+  </EntityType>
+  <Association Name="FK_PEDIDO_CLIENTE">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CEDCLIENTE" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CEDCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bdSolicitudDM" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+    <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" />
+    <AssociationSet Name="FK_PEDIDO_CLIENTE" Association="Self.FK_PEDIDO_CLIENTE">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

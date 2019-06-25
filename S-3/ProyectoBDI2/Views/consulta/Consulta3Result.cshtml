@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.ORDENPRODUCCION>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ordenes de produccion</h2>
+
+<p>Ordenes de produccion relacionadas con un pedido</p>
+<table class="table">
+    <tr>
+        <th>OP</th>
+        <th>Fecha</th>
+        <th>Fecha de finalizacion programada</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CODORDENPRODUCCION)
+            </td>
+            <td>
+                @Html.Label((String) ViewBag.fechaPedido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FECHAPROGRAMADA)
+            </td>
+        </tr>
+    }
+
+</table>
+

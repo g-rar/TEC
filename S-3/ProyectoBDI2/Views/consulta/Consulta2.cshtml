@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.LINEAORDENCOMPRA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lineas de ordenes de compra</h2>
+<p>Lista de faltantes incluidos en una orden de compra</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDENCOMPRA.CODORDENCOMPRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CANTIDAD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ORDENCOMPRA.CODORDENCOMPRA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MATERIAPRIMA.DESCRIPCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UNIDADMEDIDA1.NBRMEDIDA)
+            </td>
+            <td>
+               | @Html.ActionLink("Realizar consulta", "Consulta2Result", new { codCompra = item.CODORDENCOMPRA, codMaterial = item.CODMATERIAL }) |
+            </td>
+        </tr>
+    }
+
+</table>

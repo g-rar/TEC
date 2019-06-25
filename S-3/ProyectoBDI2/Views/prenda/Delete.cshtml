@@ -1,0 +1,65 @@
+﻿@model ProyectoBDI2.Models.PRENDA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PRENDA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXISTENCIAACTUAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXISTENCIAACTUAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TALLA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TALLA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTILO.COLOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTILO.COLOR)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        @if (ViewBag.canDelete)
+        {
+            <input type="submit" value="Delete" class="btn btn-default" />
+        }
+        else
+        {
+            <label class="label-danger">No se puede borrar la prenda</label>
+            <input type="submit" value="Delete" class="btn btn-default" disabled />
+        }
+        | @Html.ActionLink("Back to List", "Index")
+    </div>
+    }
+</div>

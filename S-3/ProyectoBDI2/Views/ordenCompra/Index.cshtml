@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.ORDENCOMPRA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ordenes de compra</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes : new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CODORDENCOMPRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CODPROVEEDOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHAENTREGA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHAEMISION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROVEEDOR.NOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CODORDENCOMPRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CODPROVEEDOR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHAENTREGA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHAEMISION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROVEEDOR.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CODORDENCOMPRA }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CODORDENCOMPRA }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CODORDENCOMPRA })
+        </td>
+    </tr>
+}
+
+</table>

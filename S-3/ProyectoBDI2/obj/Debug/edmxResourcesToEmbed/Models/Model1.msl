@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProyectoTest2DMStoreContainer" CdmEntityContainer="ProyectoTest2EntitiesDM">
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="ProyectoTest2DM.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="CEDCLIENTE" ColumnName="CEDCLIENTE" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="DIRCOBRO" ColumnName="DIRCOBRO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDO">
+      <EntityTypeMapping TypeName="ProyectoTest2DM.PEDIDO">
+        <MappingFragment StoreEntitySet="PEDIDO">
+          <ScalarProperty Name="CODPEDIDO" ColumnName="CODPEDIDO" />
+          <ScalarProperty Name="CEDCLIENTE" ColumnName="CEDCLIENTE" />
+          <ScalarProperty Name="FECHAPEDIDO" ColumnName="FECHAPEDIDO" />
+          <ScalarProperty Name="FECHAENTREGA" ColumnName="FECHAENTREGA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

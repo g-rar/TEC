@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.ORDENESPERA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ordenes en espera</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDENPRODUCCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATERIAPRIMA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CANTIDADFALTANTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDENCOMPRA.CODORDENCOMPRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UNIDADMEDIDA1.NBRMEDIDA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Label(item.CODORDENPRODUCCION.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATERIAPRIMA.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CANTIDADFALTANTE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDENCOMPRA.CODORDENCOMPRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UNIDADMEDIDA1.NBRMEDIDA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { codOrdenProduccion = item.CODORDENPRODUCCION, codMaterial = item.CODMATERIALFALTANTE }) |
+            @Html.ActionLink("Details", "Details", new { codOrdenProduccion = item.CODORDENPRODUCCION, codMaterial = item.CODMATERIALFALTANTE }) |
+            @Html.ActionLink("Delete", "Delete", new { codOrdenProduccion = item.CODORDENPRODUCCION, codMaterial = item.CODMATERIALFALTANTE })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.CLIENTE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cliente</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CEDCLIENTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIRCOBRO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.APELLIDOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Label(item.CEDCLIENTE.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.Label(item.TELEFONO.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIRCOBRO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIRECCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CEDCLIENTE }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CEDCLIENTE }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CEDCLIENTE })
+        </td>
+    </tr>
+}
+
+</table>

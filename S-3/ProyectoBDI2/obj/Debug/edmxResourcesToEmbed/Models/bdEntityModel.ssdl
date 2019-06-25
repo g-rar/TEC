@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nsProyectoBDIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="CEDCLIENTE" />
+    </Key>
+    <Property Name="CEDCLIENTE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TELEFONO" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="DIRCOBRO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="APELLIDOS" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONJUNTO">
+    <Key>
+      <PropertyRef Name="CODCONJUNTO" />
+      <PropertyRef Name="CODPRENDA" />
+    </Key>
+    <Property Name="CODCONJUNTO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODPRENDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONVERSIONUNIDADMEDIDA">
+    <Key>
+      <PropertyRef Name="UNIDADORIGEN" />
+      <PropertyRef Name="UNIDADOBJETIVO" />
+    </Key>
+    <Property Name="UNIDADORIGEN" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="UNIDADOBJETIVO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="EQUIVALENCIA" Type="numeric" Precision="10" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="CODEMPLEADO" />
+    </Key>
+    <Property Name="CODEMPLEADO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="PUESTO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SALARIO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TELEFONO" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTILO">
+    <Key>
+      <PropertyRef Name="CODESTILO" />
+    </Key>
+    <Property Name="CODESTILO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="COLOR" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LINEAORDENCOMPRA">
+    <Key>
+      <PropertyRef Name="CODORDENCOMPRA" />
+      <PropertyRef Name="CODMATERIAL" />
+    </Key>
+    <Property Name="CODORDENCOMPRA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODMATERIAL" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="UNIDADMEDIDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LINEAPEDIDO">
+    <Key>
+      <PropertyRef Name="CODPEDIDO" />
+      <PropertyRef Name="CODPRENDA" />
+    </Key>
+    <Property Name="CODPEDIDO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODPRENDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="PRECIO" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="CODORDENPRODUCCION" Type="numeric" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="MATERIALPRENDA">
+    <Key>
+      <PropertyRef Name="CODPRENDA" />
+      <PropertyRef Name="CODMATERIAL" />
+    </Key>
+    <Property Name="CODPRENDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODMATERIAL" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="UNIDADMEDIDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CANTIDADREQUERIDA" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MATERIAPRIMA">
+    <Key>
+      <PropertyRef Name="CODMATERIAL" />
+    </Key>
+    <Property Name="CODMATERIAL" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="UNIDADMEDIDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CANTIDADMINIMA" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="COSTOUNITARIO" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="EXISTENCIAACTUAL" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MATERIAPROVEEDOR">
+    <Key>
+      <PropertyRef Name="CODMATERIAL" />
+      <PropertyRef Name="CODPROVEEDOR" />
+    </Key>
+    <Property Name="CODMATERIAL" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODPROVEEDOR" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="COSTOUNIDAD" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+    <Property Name="CANTIDADMINIMA" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+    <Property Name="DIASENTREGA" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDENCOMPRA">
+    <Key>
+      <PropertyRef Name="CODORDENCOMPRA" />
+    </Key>
+    <Property Name="CODORDENCOMPRA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODPROVEEDOR" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FECHAENTREGA" Type="date" Nullable="false" />
+    <Property Name="FECHAEMISION" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDENESPERA">
+    <Key>
+      <PropertyRef Name="CODORDENPRODUCCION" />
+      <PropertyRef Name="CODMATERIALFALTANTE" />
+    </Key>
+    <Property Name="CODORDENPRODUCCION" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODMATERIALFALTANTE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="UNIDADMEDIDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODORDENCOMPRA" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="CANTIDADFALTANTE" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDENPRODUCCION">
+    <Key>
+      <PropertyRef Name="CODORDENPRODUCCION" />
+    </Key>
+    <Property Name="CODORDENPRODUCCION" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CODPRENDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CANTIDAD" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHAPROGRAMADA" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="CODPEDIDO" />
+    </Key>
+    <Property Name="CODPEDIDO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CEDCLIENTE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FECHAPEDIDO" Type="date" Nullable="false" />
+    <Property Name="FECHAENTREGA" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRENDA">
+    <Key>
+      <PropertyRef Name="CODPRENDA" />
+    </Key>
+    <Property Name="CODPRENDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="PRECIO" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="EXISTENCIAACTUAL" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="CODESTILO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TALLA" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="CODPROVEEDOR" />
+    </Key>
+    <Property Name="CODPROVEEDOR" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TELEFONO" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="NBRCONTACTO" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROVEEDOREXTRANGERO">
+    <Key>
+      <PropertyRef Name="CODPROVEEDOR" />
+    </Key>
+    <Property Name="CODPROVEEDOR" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NBRBANCO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CUENTABANCO" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROVEEDORNACIONAL">
+    <Key>
+      <PropertyRef Name="CODPROVEEDOR" />
+    </Key>
+    <Property Name="CODPROVEEDOR" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CEDJURIDICA" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="DIASCREDITO" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UNIDADMEDIDA">
+    <Key>
+      <PropertyRef Name="CODUNIDADMEDIDA" />
+    </Key>
+    <Property Name="CODUNIDADMEDIDA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NBRMEDIDA" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="CONVERSIONUNIDADMEDIDA_FK1">
+    <End Role="UNIDADMEDIDA" Type="Self.UNIDADMEDIDA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CONVERSIONUNIDADMEDIDA" Type="Self.CONVERSIONUNIDADMEDIDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDADMEDIDA">
+        <PropertyRef Name="CODUNIDADMEDIDA" />
+      </Principal>
+      <Dependent Role="CONVERSIONUNIDADMEDIDA">
+        <PropertyRef Name="UNIDADORIGEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONVERSIONUNIDADMEDIDA_FK2">
+    <End Role="UNIDADMEDIDA" Type="Self.UNIDADMEDIDA" Multiplicity="1" />
+    <End Role="CONVERSIONUNIDADMEDIDA" Type="Self.CONVERSIONUNIDADMEDIDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDADMEDIDA">
+        <PropertyRef Name="CODUNIDADMEDIDA" />
+      </Principal>
+      <Dependent Role="CONVERSIONUNIDADMEDIDA">
+        <PropertyRef Name="UNIDADOBJETIVO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONJUNTO_PRENDA">
+    <End Role="PRENDA" Type="Self.PRENDA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CONJUNTO" Type="Self.CONJUNTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRENDA">
+        <PropertyRef Name="CODPRENDA" />
+      </Principal>
+      <Dependent Role="CONJUNTO">
+        <PropertyRef Name="CODCONJUNTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONJUNTO_PRENDA1">
+    <End Role="PRENDA" Type="Self.PRENDA" Multiplicity="1" />
+    <End Role="CONJUNTO" Type="Self.CONJUNTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRENDA">
+        <PropertyRef Name="CODPRENDA" />
+      </Principal>
+      <Dependent Role="CONJUNTO">
+        <PropertyRef Name="CODCONJUNTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LINEAORDENCOMPRA_FK1">
+    <End Role="ORDENCOMPRA" Type="Self.ORDENCOMPRA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LINEAORDENCOMPRA" Type="Self.LINEAORDENCOMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDENCOMPRA">
+        <PropertyRef Name="CODORDENCOMPRA" />
+      </Principal>
+      <Dependent Role="LINEAORDENCOMPRA">
+        <PropertyRef Name="CODORDENCOMPRA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LINEAORDENCOMPRA_FK2">
+    <End Role="MATERIAPRIMA" Type="Self.MATERIAPRIMA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LINEAORDENCOMPRA" Type="Self.LINEAORDENCOMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATERIAPRIMA">
+        <PropertyRef Name="CODMATERIAL" />
+      </Principal>
+      <Dependent Role="LINEAORDENCOMPRA">
+        <PropertyRef Name="CODMATERIAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LINEAORDENCOMPRA_FK3">
+    <End Role="UNIDADMEDIDA" Type="Self.UNIDADMEDIDA" Multiplicity="1" />
+    <End Role="LINEAORDENCOMPRA" Type="Self.LINEAORDENCOMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDADMEDIDA">
+        <PropertyRef Name="CODUNIDADMEDIDA" />
+      </Principal>
+      <Dependent Role="LINEAORDENCOMPRA">
+        <PropertyRef Name="UNIDADMEDIDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LINEAPEDIDO_FK1">
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LINEAPEDIDO" Type="Self.LINEAPEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDO">
+        <PropertyRef Name="CODPEDIDO" />
+      </Principal>
+      <Dependent Role="LINEAPEDIDO">
+        <PropertyRef Name="CODPEDIDO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LINEAPEDIDO_FK2">
+    <End Role="PRENDA" Type="Self.PRENDA" Multiplicity="1" />
+    <End Role="LINEAPEDIDO" Type="Self.LINEAPEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRENDA">
+        <PropertyRef Name="CODPRENDA" />
+      </Principal>
+      <Dependent Role="LINEAPEDIDO">
+        <PropertyRef Name="CODPRENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LINEAPEDIDO_FK3">
+    <End Role="ORDENPRODUCCION" Type="Self.ORDENPRODUCCION" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LINEAPEDIDO" Type="Self.LINEAPEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDENPRODUCCION">
+        <PropertyRef Name="CODORDENPRODUCCION" />
+      </Principal>
+      <Dependent Role="LINEAPEDIDO">
+        <PropertyRef Name="CODORDENPRODUCCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MATERIALPRENDA_FK1">
+    <End Role="UNIDADMEDIDA" Type="Self.UNIDADMEDIDA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MATERIALPRENDA" Type="Self.MATERIALPRENDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDADMEDIDA">
+        <PropertyRef Name="CODUNIDADMEDIDA" />
+      </Principal>
+      <Dependent Role="MATERIALPRENDA">
+        <PropertyRef Name="UNIDADMEDIDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MATERIALPRENDA_FK2">
+    <End Role="PRENDA" Type="Self.PRENDA" Multiplicity="1" />
+    <End Role="MATERIALPRENDA" Type="Self.MATERIALPRENDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRENDA">
+        <PropertyRef Name="CODPRENDA" />
+      </Principal>
+      <Dependent Role="MATERIALPRENDA">
+        <PropertyRef Name="CODPRENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MATERIALPRENDA_FK3">
+    <End Role="MATERIAPRIMA" Type="Self.MATERIAPRIMA" Multiplicity="1" />
+    <End Role="MATERIALPRENDA" Type="Self.MATERIALPRENDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATERIAPRIMA">
+        <PropertyRef Name="CODMATERIAL" />
+      </Principal>
+      <Dependent Role="MATERIALPRENDA">
+        <PropertyRef Name="CODMATERIAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MATERIAPRIMA_FK1">
+    <End Role="UNIDADMEDIDA" Type="Self.UNIDADMEDIDA" Multiplicity="1" />
+    <End Role="MATERIAPRIMA" Type="Self.MATERIAPRIMA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDADMEDIDA">
+        <PropertyRef Name="CODUNIDADMEDIDA" />
+      </Principal>
+      <Dependent Role="MATERIAPRIMA">
+        <PropertyRef Name="UNIDADMEDIDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MATERIAPROVEEDOR_FK1">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MATERIAPROVEEDOR" Type="Self.MATERIAPROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="CODPROVEEDOR" />
+      </Principal>
+      <Dependent Role="MATERIAPROVEEDOR">
+        <PropertyRef Name="CODPROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MATERIAPROVEEDOR_FK2">
+    <End Role="MATERIAPRIMA" Type="Self.MATERIAPRIMA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MATERIAPROVEEDOR" Type="Self.MATERIAPROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATERIAPRIMA">
+        <PropertyRef Name="CODMATERIAL" />
+      </Principal>
+      <Dependent Role="MATERIAPROVEEDOR">
+        <PropertyRef Name="CODMATERIAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENCOMPRA_FK1">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDENCOMPRA" Type="Self.ORDENCOMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="CODPROVEEDOR" />
+      </Principal>
+      <Dependent Role="ORDENCOMPRA">
+        <PropertyRef Name="CODPROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENESPERA_FK1">
+    <End Role="ORDENPRODUCCION" Type="Self.ORDENPRODUCCION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDENESPERA" Type="Self.ORDENESPERA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDENPRODUCCION">
+        <PropertyRef Name="CODORDENPRODUCCION" />
+      </Principal>
+      <Dependent Role="ORDENESPERA">
+        <PropertyRef Name="CODORDENPRODUCCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENESPERA_FK2">
+    <End Role="MATERIAPRIMA" Type="Self.MATERIAPRIMA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDENESPERA" Type="Self.ORDENESPERA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATERIAPRIMA">
+        <PropertyRef Name="CODMATERIAL" />
+      </Principal>
+      <Dependent Role="ORDENESPERA">
+        <PropertyRef Name="CODMATERIALFALTANTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENESPERA_FK3">
+    <End Role="UNIDADMEDIDA" Type="Self.UNIDADMEDIDA" Multiplicity="1" />
+    <End Role="ORDENESPERA" Type="Self.ORDENESPERA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDADMEDIDA">
+        <PropertyRef Name="CODUNIDADMEDIDA" />
+      </Principal>
+      <Dependent Role="ORDENESPERA">
+        <PropertyRef Name="UNIDADMEDIDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENESPERA_ORDENCOMPRA_FK1">
+    <End Role="ORDENCOMPRA" Type="Self.ORDENCOMPRA" Multiplicity="0..1" />
+    <End Role="ORDENESPERA" Type="Self.ORDENESPERA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDENCOMPRA">
+        <PropertyRef Name="CODORDENCOMPRA" />
+      </Principal>
+      <Dependent Role="ORDENESPERA">
+        <PropertyRef Name="CODORDENCOMPRA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENPRODUCCION_FK2">
+    <End Role="PRENDA" Type="Self.PRENDA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDENPRODUCCION" Type="Self.ORDENPRODUCCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRENDA">
+        <PropertyRef Name="CODPRENDA" />
+      </Principal>
+      <Dependent Role="ORDENPRODUCCION">
+        <PropertyRef Name="CODPRENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDIDO_FK1">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CEDCLIENTE" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CEDCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRENDA_FK1">
+    <End Role="ESTILO" Type="Self.ESTILO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PRENDA" Type="Self.PRENDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTILO">
+        <PropertyRef Name="CODESTILO" />
+      </Principal>
+      <Dependent Role="PRENDA">
+        <PropertyRef Name="CODESTILO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROVEEDOREXTRANGERO_FK1">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PROVEEDOREXTRANGERO" Type="Self.PROVEEDOREXTRANGERO" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="CODPROVEEDOR" />
+      </Principal>
+      <Dependent Role="PROVEEDOREXTRANGERO">
+        <PropertyRef Name="CODPROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROVEEDORNACIONAL_FK1">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PROVEEDORNACIONAL" Type="Self.PROVEEDORNACIONAL" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="CODPROVEEDOR" />
+      </Principal>
+      <Dependent Role="PROVEEDORNACIONAL">
+        <PropertyRef Name="CODPROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nsProyectoBDIModelStoreContainer">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONJUNTO" EntityType="Self.CONJUNTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONVERSIONUNIDADMEDIDA" EntityType="Self.CONVERSIONUNIDADMEDIDA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTILO" EntityType="Self.ESTILO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LINEAORDENCOMPRA" EntityType="Self.LINEAORDENCOMPRA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LINEAPEDIDO" EntityType="Self.LINEAPEDIDO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MATERIALPRENDA" EntityType="Self.MATERIALPRENDA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MATERIAPRIMA" EntityType="Self.MATERIAPRIMA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MATERIAPROVEEDOR" EntityType="Self.MATERIAPROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDENCOMPRA" EntityType="Self.ORDENCOMPRA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDENESPERA" EntityType="Self.ORDENESPERA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDENPRODUCCION" EntityType="Self.ORDENPRODUCCION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRENDA" EntityType="Self.PRENDA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVEEDOREXTRANGERO" EntityType="Self.PROVEEDOREXTRANGERO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVEEDORNACIONAL" EntityType="Self.PROVEEDORNACIONAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UNIDADMEDIDA" EntityType="Self.UNIDADMEDIDA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="CONVERSIONUNIDADMEDIDA_FK1" Association="Self.CONVERSIONUNIDADMEDIDA_FK1">
+      <End Role="UNIDADMEDIDA" EntitySet="UNIDADMEDIDA" />
+      <End Role="CONVERSIONUNIDADMEDIDA" EntitySet="CONVERSIONUNIDADMEDIDA" />
+    </AssociationSet>
+    <AssociationSet Name="CONVERSIONUNIDADMEDIDA_FK2" Association="Self.CONVERSIONUNIDADMEDIDA_FK2">
+      <End Role="UNIDADMEDIDA" EntitySet="UNIDADMEDIDA" />
+      <End Role="CONVERSIONUNIDADMEDIDA" EntitySet="CONVERSIONUNIDADMEDIDA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONJUNTO_PRENDA" Association="Self.FK_CONJUNTO_PRENDA">
+      <End Role="PRENDA" EntitySet="PRENDA" />
+      <End Role="CONJUNTO" EntitySet="CONJUNTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONJUNTO_PRENDA1" Association="Self.FK_CONJUNTO_PRENDA1">
+      <End Role="PRENDA" EntitySet="PRENDA" />
+      <End Role="CONJUNTO" EntitySet="CONJUNTO" />
+    </AssociationSet>
+    <AssociationSet Name="LINEAORDENCOMPRA_FK1" Association="Self.LINEAORDENCOMPRA_FK1">
+      <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+      <End Role="LINEAORDENCOMPRA" EntitySet="LINEAORDENCOMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="LINEAORDENCOMPRA_FK2" Association="Self.LINEAORDENCOMPRA_FK2">
+      <End Role="MATERIAPRIMA" EntitySet="MATERIAPRIMA" />
+      <End Role="LINEAORDENCOMPRA" EntitySet="LINEAORDENCOMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="LINEAORDENCOMPRA_FK3" Association="Self.LINEAORDENCOMPRA_FK3">
+      <End Role="UNIDADMEDIDA" EntitySet="UNIDADMEDIDA" />
+      <End Role="LINEAORDENCOMPRA" EntitySet="LINEAORDENCOMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="LINEAPEDIDO_FK1" Association="Self.LINEAPEDIDO_FK1">
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+      <End Role="LINEAPEDIDO" EntitySet="LINEAPEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="LINEAPEDIDO_FK2" Association="Self.LINEAPEDIDO_FK2">
+      <End Role="PRENDA" EntitySet="PRENDA" />
+      <End Role="LINEAPEDIDO" EntitySet="LINEAPEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="LINEAPEDIDO_FK3" Association="Self.LINEAPEDIDO_FK3">
+      <End Role="ORDENPRODUCCION" EntitySet="ORDENPRODUCCION" />
+      <End Role="LINEAPEDIDO" EntitySet="LINEAPEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="MATERIALPRENDA_FK1" Association="Self.MATERIALPRENDA_FK1">
+      <End Role="UNIDADMEDIDA" EntitySet="UNIDADMEDIDA" />
+      <End Role="MATERIALPRENDA" EntitySet="MATERIALPRENDA" />
+    </AssociationSet>
+    <AssociationSet Name="MATERIALPRENDA_FK2" Association="Self.MATERIALPRENDA_FK2">
+      <End Role="PRENDA" EntitySet="PRENDA" />
+      <End Role="MATERIALPRENDA" EntitySet="MATERIALPRENDA" />
+    </AssociationSet>
+    <AssociationSet Name="MATERIALPRENDA_FK3" Association="Self.MATERIALPRENDA_FK3">
+      <End Role="MATERIAPRIMA" EntitySet="MATERIAPRIMA" />
+      <End Role="MATERIALPRENDA" EntitySet="MATERIALPRENDA" />
+    </AssociationSet>
+    <AssociationSet Name="MATERIAPRIMA_FK1" Association="Self.MATERIAPRIMA_FK1">
+      <End Role="UNIDADMEDIDA" EntitySet="UNIDADMEDIDA" />
+      <End Role="MATERIAPRIMA" EntitySet="MATERIAPRIMA" />
+    </AssociationSet>
+    <AssociationSet Name="MATERIAPROVEEDOR_FK1" Association="Self.MATERIAPROVEEDOR_FK1">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="MATERIAPROVEEDOR" EntitySet="MATERIAPROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="MATERIAPROVEEDOR_FK2" Association="Self.MATERIAPROVEEDOR_FK2">
+      <End Role="MATERIAPRIMA" EntitySet="MATERIAPRIMA" />
+      <End Role="MATERIAPROVEEDOR" EntitySet="MATERIAPROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENCOMPRA_FK1" Association="Self.ORDENCOMPRA_FK1">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENESPERA_FK1" Association="Self.ORDENESPERA_FK1">
+      <End Role="ORDENPRODUCCION" EntitySet="ORDENPRODUCCION" />
+      <End Role="ORDENESPERA" EntitySet="ORDENESPERA" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENESPERA_FK2" Association="Self.ORDENESPERA_FK2">
+      <End Role="MATERIAPRIMA" EntitySet="MATERIAPRIMA" />
+      <End Role="ORDENESPERA" EntitySet="ORDENESPERA" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENESPERA_FK3" Association="Self.ORDENESPERA_FK3">
+      <End Role="UNIDADMEDIDA" EntitySet="UNIDADMEDIDA" />
+      <End Role="ORDENESPERA" EntitySet="ORDENESPERA" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENESPERA_ORDENCOMPRA_FK1" Association="Self.ORDENESPERA_ORDENCOMPRA_FK1">
+      <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+      <End Role="ORDENESPERA" EntitySet="ORDENESPERA" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENPRODUCCION_FK2" Association="Self.ORDENPRODUCCION_FK2">
+      <End Role="PRENDA" EntitySet="PRENDA" />
+      <End Role="ORDENPRODUCCION" EntitySet="ORDENPRODUCCION" />
+    </AssociationSet>
+    <AssociationSet Name="PEDIDO_FK1" Association="Self.PEDIDO_FK1">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PRENDA_FK1" Association="Self.PRENDA_FK1">
+      <End Role="ESTILO" EntitySet="ESTILO" />
+      <End Role="PRENDA" EntitySet="PRENDA" />
+    </AssociationSet>
+    <AssociationSet Name="PROVEEDOREXTRANGERO_FK1" Association="Self.PROVEEDOREXTRANGERO_FK1">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="PROVEEDOREXTRANGERO" EntitySet="PROVEEDOREXTRANGERO" />
+    </AssociationSet>
+    <AssociationSet Name="PROVEEDORNACIONAL_FK1" Association="Self.PROVEEDORNACIONAL_FK1">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="PROVEEDORNACIONAL" EntitySet="PROVEEDORNACIONAL" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,84 @@
+﻿@model ProyectoBDI2.Models.ORDENESPERA
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ORDENESPERA</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CODORDENPRODUCCION, "CODORDENPRODUCCION", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CODORDENPRODUCCION", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CODORDENPRODUCCION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CODMATERIALFALTANTE, "CODMATERIALFALTANTE", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CODMATERIALFALTANTE", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CODMATERIALFALTANTE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UNIDADMEDIDA, "UNIDADMEDIDA", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UNIDADMEDIDA", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UNIDADMEDIDA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CODORDENCOMPRA, "CODORDENCOMPRA", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CODORDENCOMPRA", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CODORDENCOMPRA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CANTIDADFALTANTE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CANTIDADFALTANTE, new { htmlAttributes = new { @class = "form-control", @step = "0,01" } })
+                @Html.ValidationMessageFor(model => model.CANTIDADFALTANTE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="~/Scripts/globalize.js"></script>
+    <script type="text/javascript" src="~/Scripts/globalize.culture.neutral.js"></script>
+    <script type="text/javascript">
+        $.validator.methods.number = function (value, element) {
+   return this.optional(element) || !isNaN(Globalize.parseFloat(value));
+        }
+
+        $(function () {
+            Globalize.culture('%%culture%%');
+        });
+    </script>
+}

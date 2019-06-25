@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de faltantes de la linea solicitada</h2>
+<p>Lista de faltantes incluidos en una orden de compra</p>
+
+<table class="table">
+    <tr>
+        <th>Numero OP</th>
+        <th>Id Prenda</th>
+        <th>Id Material</th>
+        <th>Unidad de medida</th>
+        <th>Cantidad faltante</th>
+    </tr>
+
+    @foreach (ProyectoBDI2.Models.ORDENESPERA item in ViewBag.resultadoConsulta)
+    {
+        <tr>
+            <td>
+                @Html.Label(item.CODORDENPRODUCCION.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+            </td>
+            <td>
+                @Html.Label(item.ORDENPRODUCCION.CODPRENDA.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+            </td>
+            <td>
+                @Html.Label(item.CODMATERIALFALTANTE.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+            </td>
+            <td>
+                @Html.Label(item.UNIDADMEDIDA1.NBRMEDIDA, htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+            </td>
+            <td>
+                @Html.Label(item.CANTIDADFALTANTE.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+            </td>
+        </tr>
+    }
+
+</table>
+

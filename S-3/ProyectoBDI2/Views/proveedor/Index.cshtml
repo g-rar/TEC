@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.PROVEEDOR>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Proveedores</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes : new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CODPROVEEDOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NBRCONTACTO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CODPROVEEDOR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIRECCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEFONO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NBRCONTACTO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CODPROVEEDOR }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CODPROVEEDOR }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CODPROVEEDOR })
+        </td>
+    </tr>
+}
+
+</table>

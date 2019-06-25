@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoBDI2.Models.PRENDA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Prendas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary" }) 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CODPRENDA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EXISTENCIAACTUAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TALLA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTILO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CODPRENDA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EXISTENCIAACTUAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TALLA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTILO.DESCRIPCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CODPRENDA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CODPRENDA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CODPRENDA })
+        </td>
+    </tr>
+}
+
+</table>

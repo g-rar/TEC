@@ -1,0 +1,102 @@
+﻿@model ProyectoBDI2.Models.ORDENPRODUCCION
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ORDENPRODUCCION</h4>
+    @if (ViewBag.actualIndex == 0)
+    {
+        <a class="btn btn-default" disabled><<</a>
+        <a class="btn btn-default" disabled><</a>
+    }
+    else
+    {
+        @Html.ActionLink("<<", "DetailsByIndex", new { index = 0 }, htmlAttributes: new { @class = "btn btn-default" })
+        @Html.ActionLink("<", "DetailsByIndex", new { index = ViewBag.actualIndex - 1 }, htmlAttributes: new { @class = "btn btn-default" })
+    }
+    @if (ViewBag.actualIndex == ViewBag.lastIndex)
+    {
+
+        <a class="btn btn-default" disabled>></a>
+        <a class="btn btn-default" disabled>>></a>
+    }
+    else
+    {
+        @Html.ActionLink(">", "DetailsByIndex", new { index = ViewBag.actualIndex + 1 }, htmlAttributes: new { @class = "btn btn-default" })
+        @Html.ActionLink(">>", "DetailsByIndex", new { index = ViewBag.lastIndex }, htmlAttributes: new { @class = "btn btn-default" })
+    }
+    <center><h2>Info Orden Produccion</h2></center>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CODORDENPRODUCCION)</th>
+                <th>@Html.DisplayNameFor(model => model.CODPRENDA)</th>
+                <th>@Html.DisplayNameFor(model => model.CANTIDAD)</th>
+                <th>@Html.DisplayNameFor(model => model.ESTADO)</th>
+                <th>@Html.DisplayNameFor(model => model.FECHAPROGRAMADA)</th>
+                <th>@Html.DisplayNameFor(model => model.PRENDA.TALLA)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>@Html.DisplayFor(model => model.CODORDENPRODUCCION)</th>
+                <th>@Html.DisplayFor(model => model.CODPRENDA)</th>
+                <th>@Html.DisplayFor(model => model.CANTIDAD)</th>
+                <th>@Html.DisplayFor(model => model.ESTADO)</th>
+                <th>@Html.DisplayFor(model => model.FECHAPROGRAMADA)</th>
+                <th>@Html.DisplayFor(model => model.PRENDA.TALLA)</th>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <center><h2>Detalles de faltantes</h2></center>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cod OP</th>
+                <th>Material faltante</th>
+                <th>Cantidad faltante</th>
+                <th>Cod Orden de Compra</th>
+                <th>Nombre medida</th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (ProyectoBDI2.Models.ORDENESPERA item in ViewBag.ORDENESESPERA)
+        {
+            <tr>
+                <td>
+                    @Html.Label(item.CODORDENPRODUCCION.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                </td>
+                <td>
+                    @Html.Label(item.MATERIAPRIMA.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                </td>
+                <td>
+                    @Html.Label(item.CANTIDADFALTANTE.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                </td>
+                <td>
+                    @Html.Label(item.CODORDENCOMPRA.ToString(), htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                </td>
+                <td>
+                    @Html.Label(item.UNIDADMEDIDA1.NBRMEDIDA, htmlAttributes: new { @class = "control-label col-md-5", style = "font-weight:normal" })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "ordenespera", new { codOrdenProduccion = item.CODORDENPRODUCCION, codMaterial = item.CODMATERIALFALTANTE }, null) |
+                    @Html.ActionLink("Details", "Details", "ordenespera", new { codOrdenProduccion = item.CODORDENPRODUCCION, codMaterial = item.CODMATERIALFALTANTE }, null) |
+                    @Html.ActionLink("Delete", "Delete", "ordenespera", new { codOrdenProduccion = item.CODORDENPRODUCCION, codMaterial = item.CODMATERIALFALTANTE }, null)
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CODORDENPRODUCCION }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

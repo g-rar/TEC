@@ -1,0 +1,43 @@
+﻿@model ProyectoBDI2.Models.ORDENCOMPRA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ORDENCOMPRA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHAENTREGA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHAENTREGA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHAEMISION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHAEMISION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROVEEDOR.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROVEEDOR.NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CODORDENCOMPRA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

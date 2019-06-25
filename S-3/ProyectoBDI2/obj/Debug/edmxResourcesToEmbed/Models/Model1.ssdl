@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoTest2DM.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="CEDCLIENTE" />
+    </Key>
+    <Property Name="CEDCLIENTE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TELEFONO" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="DIRCOBRO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="APELLIDOS" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="CODPEDIDO" />
+    </Key>
+    <Property Name="CODPEDIDO" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CEDCLIENTE" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FECHAPEDIDO" Type="date" Nullable="false" />
+    <Property Name="FECHAENTREGA" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PEDIDO_CLIENTE">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CEDCLIENTE" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CEDCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoTest2DMStoreContainer">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="SCHEMA1" store:Type="Tables" />
+    <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="SCHEMA1" store:Type="Tables" />
+    <AssociationSet Name="FK_PEDIDO_CLIENTE" Association="Self.FK_PEDIDO_CLIENTE">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
